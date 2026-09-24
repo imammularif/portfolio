@@ -2994,6 +2994,58 @@ setInterval(updateHeaderTime, 1000);
 </script>
 
 
+<script>
+/* ========================================
+   PROJECT IMAGE REVEAL
+======================================== */
+
+const projectImages =
+  document.querySelectorAll(".project-image");
+
+if ("IntersectionObserver" in window) {
+
+  const projectImageObserver =
+    new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -60px 0px"
+      }
+    );
+
+  projectImages.forEach(image => {
+    projectImageObserver.observe(image);
+  });
+
+} else {
+
+  /* Fallback for older browsers */
+
+  projectImages.forEach(image => {
+    image.classList.add("is-visible");
+  });
+
+}
+</script>
+
+
 </body>
 </html>
 
