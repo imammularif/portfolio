@@ -1587,21 +1587,8 @@
 
   box-shadow:
     0 15px 45px rgba(0, 0, 0, 0.06);
-
-  /* Initial animation state */
-  opacity: 0;
-
-  transform: translateY(30px) scale(0.98);
-
-  transition:
-    opacity 0.8s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
-/* ========================================
-   IMAGE
-======================================== */
 
 .project-image img {
   display: block;
@@ -1611,40 +1598,15 @@
 
   object-fit: cover;
 
-  opacity: 0;
-
-  transform: scale(1.06);
-
   transition:
-    opacity 0.9s ease,
-    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.5s ease;
 }
 
 
-/* ========================================
-   PROJECT IMAGE - ACTIVE
-======================================== */
+/* IMAGE HOVER */
 
-.project-image.is-visible {
-  opacity: 1;
-
-  transform: translateY(0) scale(1);
-}
-
-
-.project-image.is-visible img {
-  opacity: 1;
-
-  transform: scale(1);
-}
-
-
-/* ========================================
-   IMAGE HOVER
-======================================== */
-
-.project-card:hover .project-image.is-visible img {
-  transform: scale(1.035);
+.project-card:hover .project-image img {
+  transform: scale(1.03);
 }
 
 
@@ -3778,7 +3740,7 @@ body.dark-mode .certificate-group-header:hover .certificate-icon {
 }
 
 
-/* ALL ARROW */
+/* all ARROW */
 
 .certificate-arrow {
   flex-shrink: 0;
@@ -4283,18 +4245,7 @@ body.dark-mode .cv-button:hover {
 }
 
 
-/* ------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .project-image,
-  .project-image img {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-}
+/* ---------------------------------------------------- */
 
 
 
