@@ -2996,7 +2996,66 @@ setInterval(updateHeaderTime, 1000);
 
 <!-- --------------------------------- -->
 
+<script>
+/* ========================================
+   PROJECT FADE IN
+======================================== */
 
+const projectCards =
+  document.querySelectorAll(".project-card");
+
+
+if (
+  "IntersectionObserver" in window
+) {
+
+  const projectObserver =
+    new IntersectionObserver(
+      function(entries, observer) {
+
+        entries.forEach(function(entry) {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "project-active"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px"
+      }
+    );
+
+
+  projectCards.forEach(function(card) {
+
+    projectObserver.observe(card);
+
+  });
+
+
+} else {
+
+  projectCards.forEach(function(card) {
+
+    card.classList.add(
+      "project-active"
+    );
+
+  });
+
+}
+</script>
 
 
 </body>
